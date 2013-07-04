@@ -107,12 +107,140 @@ URL: https://code.google.com/p/io-2012-slides
 
     <slide>
         <hgroup>
-            <h2>Why Python?</h2>
+            <h2>Warum Python?</h2>
         </hgroup>
         <article>
+          <ul>
+            <li>freie Software</li>
+            <li>universelle Programmiersprache</li>
+            <li>viele Pakete vorhanden</li>
+            <li>leicht zu erweitern</li>
+          </ul>
+          <p>Für Einsteiger: Python 3 (und nicht Python 2)</p>
+          <p>Python ist wie viele Skriptsprachen sehr intuitiv.</p>
+          <ul>
+            <li>keine explizite Typangaben ('duck typing')</li>
+            <li>Codeblöcke per Einrückung (führt automatisch zu Lesbarkeit)
+          </ul>
         </article>
     </slide>
 
+    <slide>
+      <hgroup>
+        <h2>Die Sprache: Hallo Welt</h2>
+      </hgroup>
+      <article>
+        <pre class="prettyprint" data-lang="python">
+print('Hello world!')
+a = 42                        # integer
+b = 42 / 5                    # == 8.5 (double)
+liste = [1, 3, 'Hallo Welt!'] # Liste: alle Typen erlaubt!
+print(liste[0])               # Indices beginnt bei 0
+for i in range(4):            # i in 0,...,3
+    print(i)
+for elem in liste:
+    print(elem)
+d = { 'Hallo': 'hello',       # dictionary
+      'Welt': 'world',
+      42: 'fourty-two'}
+print(d['Hallo'])             # -> hello
+tuple = (4,3,1)
+if tuple == (4,):             # einfach zu vergleichen!
+    print('yeah')
+        </pre>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Die Sprache: Funktionen, Module</h2>
+      </hgroup>
+      <article>
+        <pre class="prettyprint" data-lang="python">
+# mymodule.py
+def square(a):       # Funktionen können überall und mit
+    return a*a       # beliebigem Namen definiert werden
+
+def arnoldi(A, v, maxiter=10, ortho='mgs'):  # default-Argument
+    # compute V, H
+    return V, H      # mehrere Rückgabewerte
+        </pre>
+        <pre class="prettyprint" data-lang="python">
+import mymodule      # import kann an jeder Stelle im Code stehen
+print( mymodule.square(3) )
+        </pre>
+        <pre class="prettyprint" data-lang="python">
+from mymodule import square, arnoldi
+print( square(3) )
+V, H = arnoldi(A, v, ortho='house') # maxiter wird auf 10 gesetzt
+        </pre>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Pakete: numpy</h2>
+      </hgroup>
+      <article>
+        <p>numpy ist <em>das</em> Basispaket für Numerik (baut auf BLAS,
+        LAPACK, usw. auf).</p>
+        <pre class="prettyprint" data-lang="python">
+from numpy import array, ones, dot   # N-dim Arrays
+v = array([1,2,3])           # 1-dim arr, shape==(3,)
+v = ones(5)                  # 1-dim arr, shape==(5,)
+v = ones((5,1))              # 2-dim arr, shape==(5,1)
+A = array([[1,2,3],[4,5,6]]) # 2x3 Matrix: 2-dim arr, shape==(2,3)
+A = ones((5,5))              # 5x5 Matrix: 2-dim arr, shape==(5,5)
+b = dot(A, v)                # A*v
+        </pre>
+        <p>Der Standard-Datentyp in numpy sind <em>numpy arrays</em>. Es gibt
+        auch noch <em>numpy matrix</em>: der wesentliche Unterschied ist, dass
+        man wie in MATLAB den *-Operator für die Matrix-Matrix-Multiplikation
+        benutzen kann. Wir (und die <a href="http://wiki.scipy.org/NumPy_for_Matlab_Users">numpy community</a>) 
+        empfehlen <em>numpy arrays</em>.</p>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Pakete: numpy</h2>
+      </hgroup>
+      <article>
+        <p>Altbekannte Befehle im numpy-Paket:</p>
+        <ul>
+          <li>zeros, ones, diag, abs, linspace, ...</li>
+          <li><strong>random-Modul:</strong> rand, randn, ...</li>
+          <li><strong>linalg-Modul:</strong> solve, norm, eig, svd, lu, qr, cholesky, ...</li>
+        </ul>
+
+        <p>MATLAB's Backslash-Operator: solve.</p>
+        <p>Für mehr: siehe <a href="http://docs.scipy.org/doc/numpy/reference/">numpy Dokumentation</a>.</p>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Pakete: scipy</h2>
+      </hgroup>
+      <article>
+        <iframe src="http://docs.scipy.org/doc/scipy/reference/" ></iframe>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Pakete: scipy</h2>
+      </hgroup>
+      <article>
+        <p>Für uns sind im scipy-Paket insbesondere interessant:</p>
+        <ul>
+          <li>scipy.linalg: erweiterte Funktionalität: Bandmatrizen, qz, matrix functions, ...</li>
+          <li>scipy.sparse: diverse Sparse-Matrix-Typen, cg, gmres, eigs, ...</li>
+        </ul>
+
+        <p>Für mehr: siehe <a href="http://docs.scipy.org/doc/scipy/reference/">scipy Dokumentation</a>.</p>
+      </article>
+    </slide>
     <slide class="thank-you-slide segue nobackground">
         <aside class="gdbar right"><img src="images/matheon-logo-color.svg"></aside>
         <article class="flexbox vleft auto-fadein">

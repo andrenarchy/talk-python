@@ -4,7 +4,7 @@ slides > slide {
 }
 /* line 16, ../scss/matheon.scss */
 slides > slide:not(.nobackground):before {
-  content: "Projections, angles and spectra in Hilbert spaces";
+  content: "Python Einführung";
   background: url(../../images/matheon-logo-color.svg) no-repeat 0 50%;
   -webkit-background-size: 30px 30px;
   -moz-background-size: 30px 30px;
