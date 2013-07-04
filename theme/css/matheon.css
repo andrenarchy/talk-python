@@ -1,0 +1,100 @@
+/* line 11, ../scss/matheon.scss */
+slides > slide {
+  font-family: 'UniversLTStd', 'Open Sans', Arial, sans-serif;
+}
+/* line 16, ../scss/matheon.scss */
+slides > slide:not(.nobackground):before {
+  content: "Projections, angles and spectra in Hilbert spaces";
+  background: url(../../images/matheon-logo-color.svg) no-repeat 0 50%;
+  -webkit-background-size: 30px 30px;
+  -moz-background-size: 30px 30px;
+  -o-background-size: 30px 30px;
+  background-size: 30px 30px;
+  z-index: 100;
+}
+/* line 23, ../scss/matheon.scss */
+slides > slide.title-slide:after {
+  background: url(../../images/tu-logo-red.svg) no-repeat 100% 50%;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
+/* line 32, ../scss/matheon.scss */
+table th {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #2659a6), color-stop(80%, #015cc8)) no-repeat;
+  background: -webkit-linear-gradient(top, #2659a6 40%, #015cc8 80%) no-repeat;
+  background: -moz-linear-gradient(top, #2659a6 40%, #015cc8 80%) no-repeat;
+  background: -o-linear-gradient(top, #2659a6 40%, #015cc8 80%) no-repeat;
+  background: linear-gradient(top, #2659a6 40%, #015cc8 80%) no-repeat;
+}
+
+/* line 37, ../scss/matheon.scss */
+.thank-you-slide {
+  background: #2659a6 !important;
+}
+
+.box {
+    border-radius: 15px;
+    padding: 15px;
+    background: #e6e6e6;
+    width: 100%;
+    margin-bottom: 25px;
+    position: relative;
+    box-shadow: 5px 5px 5px 2px #ccc;
+    display: block;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.boxtitle, .box[data-title]:before {
+    position: relative;
+    right:0;
+    top:0;
+    margin-top: -15px;
+    margin-right: -15px;
+    background: #2659a6;
+    color: #ffffff;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    text-align: center;
+    padding: 2px 40px;
+    float: right;
+    text-shadow: none;
+}
+
+.box[data-title]:before {
+    content: attr(data-title);
+}
+
+ol {
+    margin-left: 1.5em;
+    list-style-type: decimal;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.MathJax_Display {
+    margin: 0.4em 0em !important;
+}
+
+.plot {
+    width: 100%; 
+    height: 400px;
+}
+
+figcaption {
+    text-align: center;
+}
+
+.JXGtext > .MathJax {
+    position: relative;
+    left: 10px;
+    top: 10px;
+}

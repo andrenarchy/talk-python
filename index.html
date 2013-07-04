@@ -1,0 +1,144 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Python Introduction</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <link rel="stylesheet" media="all" href="theme/css/jsxgraph.css">
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+  <!--MathJax-->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            Macros: {
+                x: '\\mathbf{x}',
+                C: '\\mathbb{C}',
+                R: '\\mathbb{R}',
+                A: '\\mathbf{A}',
+                n: '\\mathbf{n}',
+                i: '\\text{i}',
+                id: '\\mathsf{id}',
+                vsH: '\\mathcal{H}',
+                vsL: '\\mathcal{L}',
+                vsN: '\\mathcal{N}',
+                vsR: '\\mathcal{R}',
+                vsV: '\\mathcal{V}',
+                vsW: '\\mathcal{W}',
+                vsX: '\\mathcal{X}',
+                vsY: '\\mathcal{Y}',
+                ip: ['\\langle #1,#2 \\rangle', 2],
+                ipdots: '\\ip{\\cdot}{\\cdot}',
+                nrm: ['\\| #1 \\|', 1],
+                nrmdot: '\\nrm{\\cdot}',
+                lra: '\\longrightarrow',
+                LRA: '\\Longrightarrow',
+                LLRA: '\\Longleftrightarrow'
+            }
+        },
+        skipStartupTypeset: true
+    });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        document.addEventListener('slideenter', function(e) {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, e.target]);
+            var next = document.getElementsByClassName('next')[0];
+            if (next) {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, next]);
+            }
+            var past = document.getElementsByClassName('past')[0];
+            if (past) {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, past]);
+            }
+        });
+    </script>
+    <!--MathJax end-->
+    <script type="text/javascript">
+        JXG.Options.text.useMathJax = true;
+        function onSlideEnter(slide_id, callback) {
+            document.addEventListener('slideenter', function(e) {
+                if (e.target.id == slide_id) {
+                    callback();
+                }
+            });
+        }
+    </script>
+</head>
+<body style="opacity: 0">
+
+<!--slides class="layout-widescreen"-->
+<slides>
+
+    <slide class="logoslide nobackground">
+        <article class="flexbox vcenter">
+            <!--span><img src="images/google_developers_logo.png"></span-->
+            <span><img src="images/matheon-w-text.svg"></span>
+        </article>
+    </slide>
+
+    <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="images/matheon-logo-color.svg"></aside>
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+        <hgroup class="auto-fadein">
+            <h1 data-config-title><!-- populated from slide_config.json --></h1>
+            <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+            <p>
+                <h2 data-config-presenter><!-- populated from slide_config.json --></h2>
+            </p>
+        </hgroup>
+    </slide>
+
+    <slide>
+        <hgroup>
+            <h2>Why Python?</h2>
+        </hgroup>
+        <article>
+        </article>
+    </slide>
+
+    <slide class="thank-you-slide segue nobackground">
+        <aside class="gdbar right"><img src="images/matheon-logo-color.svg"></aside>
+        <article class="flexbox vleft auto-fadein">
+            <h2>Thank you!</h2>
+            <p>Questions?</p>
+        </article>
+        <p class="auto-fadein" data-config-contact>
+        <!-- populated from slide_config.json -->
+        </p>
+    </slide>
+
+    <slide class="dark nobackground">
+        <article class="flexbox vcenter">
+            <!--span><img src="images/google_developers_logo_white.png"></span-->
+            <div class="logoslide"><img src="images/matheon-w-text-white.svg"></div>
+            <div><img style="width: 150px; margin-top:100px;" src="images/html5rocks.png"></div>
+        </article>
+    </slide>
+
+    <slide class="backdrop"></slide>
+
+</slides>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
