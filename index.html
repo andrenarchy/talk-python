@@ -147,7 +147,7 @@ print(d['Hallo'])             # -> hello
 tuple = (4,3,1)
 if tuple == (4,):             # einfach zu vergleichen!
     print('yeah')
-        </pre>
+</pre>
       </article>
     </slide>
 
@@ -164,16 +164,16 @@ def square(a):       # Funktionen können überall und mit
 def arnoldi(A, v, maxiter=10, ortho='mgs'):  # default-Argument
     # compute V, H
     return V, H      # mehrere Rückgabewerte
-        </pre>
+</pre>
         <pre class="prettyprint" data-lang="python">
-import mymodule      # import kann an jeder Stelle im Code stehen
+import mymodule      # import an jeder Stelle im Code möglich
 print( mymodule.square(3) )
-        </pre>
+</pre>
         <pre class="prettyprint" data-lang="python">
 from mymodule import square, arnoldi
 print( square(3) )
 V, H = arnoldi(A, v, ortho='house') # maxiter wird auf 10 gesetzt
-        </pre>
+</pre>
       </article>
     </slide>
 
@@ -192,7 +192,7 @@ v = ones((5,1))              # 2-dim arr, shape==(5,1)
 A = array([[1,2,3],[4,5,6]]) # 2x3 Matrix: 2-dim arr, shape==(2,3)
 A = ones((5,5))              # 5x5 Matrix: 2-dim arr, shape==(5,5)
 b = dot(A, v)                # A*v
-        </pre>
+</pre>
         <p>Der Standard-Datentyp in numpy sind <em>numpy arrays</em>. Es gibt
         auch noch <em>numpy matrix</em>: der wesentliche Unterschied ist, dass
         man wie in MATLAB den *-Operator für die Matrix-Matrix-Multiplikation
@@ -211,9 +211,10 @@ b = dot(A, v)                # A*v
           <li>zeros, ones, diag, abs, linspace, ...</li>
           <li><strong>random-Modul:</strong> rand, randn, ...</li>
           <li><strong>linalg-Modul:</strong> solve, norm, eig, svd, lu, qr, cholesky, ...</li>
+          <li><strong>polynomial-Modul:</strong> monomial, Chebyshev, Legendre, ...</li>
         </ul>
 
-        <p>MATLAB's Backslash-Operator: solve.</p>
+        <p>MATLAB's Backslash-Operator: solve(A,b).</p>
         <p>Für mehr: siehe <a href="http://docs.scipy.org/doc/numpy/reference/">numpy Dokumentation</a>.</p>
       </article>
     </slide>
@@ -236,11 +237,64 @@ b = dot(A, v)                # A*v
         <ul>
           <li>scipy.linalg: erweiterte Funktionalität: Bandmatrizen, qz, matrix functions, ...</li>
           <li>scipy.sparse: diverse Sparse-Matrix-Typen, cg, gmres, eigs, ...</li>
+          <li>scipy.optimize: simplex, newton, leastsq, ...</li>
         </ul>
 
         <p>Für mehr: siehe <a href="http://docs.scipy.org/doc/scipy/reference/">scipy Dokumentation</a>.</p>
       </article>
     </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Pakete: matplotlib</h2>
+      </hgroup>
+      <article>
+        <iframe src="http://matplotlib.org/gallery.html" ></iframe>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Pakete: matplotlib</h2>
+      </hgroup>
+      <article>
+        <pre class="prettyprint" data-lang="python">
+from matplotlib import pyplot as pp
+
+data = [x**2 for x in range(100)] # list comprehension!
+pp.plot(data)
+pp.show()
+</pre>
+      <p>LaTeX-Integration über <a href="https://github.com/nschloe/matplotlib2tikz">matplotlib2tikz</a>.</p>
+      </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Pakete: Sonstiges</h2>
+      </hgroup>
+      <article>
+        <ul>
+          <li><a href="https://github.com/andrenarchy/krypy">krypy</a> - Krylov subspace methods &amp; tools</li>
+          <li><a href="https://code.google.com/p/pyamg/">PyAMG</a> - algebraisches Multigrid</li>
+          <li><a href="http://fenicsproject.org/">fenics / dolfin</a> - Finite Elemente</li>
+        </ul>
+        <pre class="prettyprint" data-lang="python">
+from dolfin import *
+mesh = UnitSquareMesh(32, 32)
+V = FunctionSpace(mesh, "Lagrange", 1)
+u, v = TrialFunction(V), TestFunction(V)
+f = Expression("exp(-(pow(x[0] - 0.5, 2) + pow(x[1] - 0.5, 2)))")
+a = inner(grad(u), grad(v))*dx
+L = f*v*dx
+bc = DirichletBC(V, Constant(0.0), lambda x, on_bd: on_bd)
+u = Function(V)
+solve(a == L, u, bc)
+plot(u, interactive=True)
+</pre>
+      </article>
+    </slide>
+
     <slide class="thank-you-slide segue nobackground">
         <aside class="gdbar right"><img src="images/matheon-logo-color.svg"></aside>
         <article class="flexbox vleft auto-fadein">
